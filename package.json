@@ -4,6 +4,7 @@
   "description": "Tactical and adaptive asset loading library",
   "main": "index.js",
   "scripts": {
+    "start": "browser-sync . -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/lucagez/tattica/issues"
   },
-  "homepage": "https://github.com/lucagez/tattica#readme"
+  "homepage": "https://github.com/lucagez/tattica#readme",
+  "dependencies": {
+    "browser-sync": "^2.26.3"
+  }
 }
