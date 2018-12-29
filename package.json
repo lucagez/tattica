@@ -17,7 +17,11 @@
     "url": "https://github.com/lucagez/tattica/issues"
   },
   "homepage": "https://github.com/lucagez/tattica#readme",
-  "dependencies": {
-    "browser-sync": "^2.26.3"
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "browser-sync": "^2.26.3",
+    "eslint": "^5.11.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
   }
 }
