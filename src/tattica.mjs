@@ -1,29 +1,5 @@
-const wait = (nodes) => {
-  const observables = Object.keys(nodes).map(e => nodes[e].element);
-  const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.2,
-  };
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const isLoaded = entry.target.attributes['data-is-loaded'].value === 'true';
-        if (!isLoaded) {
-          const { target } = entry;
-          const key = target.attributes['data-preload-key'].value;
-          target.src = nodes[key].src;
-          target.setAttribute('data-is-loaded', true);
-          window.requestIdleCallback(() => console.log('idle again'));
-        }
-      }
-    });
-  }, options);
-
-  observables.forEach((node) => {
-    observer.observe(node);
-  });
-};
+import waitIntersections from './waitIntersections.mjs';
+import iterativeLoad from './iterativeLoad.mjs';
 
 const tattica = (props) => {
   const config = props || {};
@@ -32,6 +8,7 @@ const tattica = (props) => {
   const store = {};
 
   flags.forEach((e, i) => {
+    // .substr(1) erase the first character of src => we'll keep the correct URL
     const src = e.attributes.src.value.substr(1);
     const element = e;
     const key = i;
@@ -42,12 +19,18 @@ const tattica = (props) => {
       key,
     };
 
+    // we are setting a key attribute to every flagged element
+    // so we will be able to retrieve with ease its original src value from @store.
     e.setAttribute('data-preload-key', i);
+    // creating new attribute and setting to false because we will need later to check if
+    // an asset has already been loaded.
     e.setAttribute('data-is-loaded', false);
     e.src = string;
-    console.log(src);
   });
-  window.requestIdleCallback(() => wait(store));
+  window.requestIdleCallback(() => {
+    waitIntersections(store);
+    iterativeLoad(store);
+  });
 };
 
 tattica();
