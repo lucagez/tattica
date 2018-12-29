@@ -8,6 +8,7 @@ const iterativeLoad = (nodes, i) => {
   const isLoaded = element.attributes['data-is-loaded'].value === 'true';
 
   if (!isLoaded) {
+    console.log('another load!');
     element.src = src;
     element.setAttribute('data-is-loaded', true);
   }

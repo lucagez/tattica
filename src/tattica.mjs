@@ -29,7 +29,9 @@ const tattica = (props) => {
   });
   window.requestIdleCallback(() => {
     waitIntersections(store);
-    iterativeLoad(store);
+    window.addEventListener('load', () => {
+      iterativeLoad(store);
+    });
   });
 };
 
