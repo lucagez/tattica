@@ -2,9 +2,10 @@
   "name": "tattica",
   "version": "0.0.1",
   "description": "Tactical and adaptive asset loading library",
-  "main": "index.js",
+  "main": "dist/tattica.js",
   "scripts": {
     "start": "browser-sync . -w",
+    "build": "microbundle src/tattica.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,8 +21,11 @@
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "browser-sync": "^2.26.3",
+    "chai": "^4.2.0",
     "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "microbundle": "^0.9.0",
+    "mocha": "^5.2.0"
   }
 }

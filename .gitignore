@@ -1,3 +1,6 @@
+# Bundled folder
+dist/
+
 # Logs
 logs
 *.log
