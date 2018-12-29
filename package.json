@@ -5,7 +5,7 @@
   "main": "dist/tattica.js",
   "scripts": {
     "start": "browser-sync . -w",
-    "build": "microbundle src/tattica.mjs",
+    "build": "microbundle src/tattica.mjs --no-sourcemap",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
