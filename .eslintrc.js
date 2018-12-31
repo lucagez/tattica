@@ -22,5 +22,8 @@ module.exports = {
   "globals": {
     DOMException: false,
     URL: false,
+  },
+  "rules": {
+    "no-restricted-syntax": ["error", "ForInStatement", "LabeledStatement", "WithStatement"]
   }
 };
