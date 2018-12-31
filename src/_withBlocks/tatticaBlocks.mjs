@@ -1,11 +1,14 @@
 import makeQueue from './makeQueue.mjs';
 import loader from './loader.mjs';
 
-// import loadBlock from './loadBlock.mjs';
+const tattica = (config = {}) => {
+  const flags = document.querySelectorAll(config.flag || '[data-flag]');
+  const string = config.string || 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
+  const connection = navigator.connection.effectiveType.split('g')[0];
+  const connectionValue = Number(connection.match(/\d/)[0]);
 
+  console.log(string, connectionValue);
 
-(() => {
-  const flags = document.querySelectorAll('[data-flag]');
   window.addEventListener('load', () => {
     console.log('loaded initial');
     window.requestIdleCallback(async () => {
@@ -19,4 +22,6 @@ import loader from './loader.mjs';
       console.log('loaded everything');
     }, { timeout: 2000 });
   });
-})();
+};
+
+tattica();

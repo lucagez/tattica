@@ -1,0 +1,8 @@
+_withBlocks became the main part of this library
+
+TODO:
+- transfer _withBlocks in main part
+- divide modules in lib/
+- add waitIntersections in main
+- pass navigator.connection.effectivetype to loader
+    - ad props in loader => load effectivetype relative to 'connectionValue'
