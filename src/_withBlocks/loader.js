@@ -1,5 +1,6 @@
 import loadSingle from './loadSingle';
 import loadBlock from './loadBlock';
+import waitIdle from './waitIdle';
 
 const loader = async (elements, resolve, index = 0) => {
   const newIndex = index + 1;
@@ -11,19 +12,11 @@ const loader = async (elements, resolve, index = 0) => {
   const hasBlockPriority = elements[index].attributes['data-block-priority'];
   if (hasBlock) await loadBlock(elements, hasBlock.value);
   if (hasBlockPriority) await loadBlock(elements, hasBlockPriority.value);
-  loadSingle(elements[index])
-    .then(() => {
-      window.requestIdleCallback(() => {
-        console.log('loading another');
-        loader(elements, resolve, newIndex);
-      }, { timeout: 1000 });
-    });
+  if (!hasBlockPriority && !hasBlock) await loadSingle(elements[index]);
+  await waitIdle();
+  loader(elements, resolve, newIndex);
 };
 
-const loaderWithPromise = (elements) => {
-  return new Promise((resolve) => {
-    loader(elements, resolve);
-  });
-};
+const loaderWithPromise = elements => new Promise(resolve => loader(elements, resolve));
 
 export default loaderWithPromise;
