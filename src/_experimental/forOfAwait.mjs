@@ -1,7 +1,7 @@
 const print = (i) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      console.log('waited', i);
+      
       resolve('waited');
     }, 2000);
   });
