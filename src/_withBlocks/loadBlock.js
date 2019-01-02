@@ -1,4 +1,4 @@
-import loadSingle from './loadSingle.mjs';
+import loadSingle from './loadSingle';
 
 const loadBlock = (elements, blockNum) => {
   const block = Object.keys(elements)

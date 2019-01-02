@@ -1,5 +1,5 @@
-import makeQueue from './makeQueue.mjs';
-import loader from './loader.mjs';
+import makeQueue from './makeQueue';
+import loader from './loader';
 
 const tattica = (config = {}) => {
   const flags = document.querySelectorAll(config.flag || '[data-flag]');

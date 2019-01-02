@@ -1,5 +1,5 @@
-import loadSingle from './loadSingle.mjs';
-import loadBlock from './loadBlock.mjs';
+import loadSingle from './loadSingle';
+import loadBlock from './loadBlock';
 
 const loader = async (elements, resolve, index = 0) => {
   const newIndex = index + 1;
