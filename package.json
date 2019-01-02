@@ -4,8 +4,8 @@
   "description": "Tactical and adaptive asset loading library",
   "main": "dist/main.js",
   "scripts": {
-    "start": "browser-sync . -w",
-    "build": "webpack",
+    "start": "webpack --watch & browser-sync . -w",
+    "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,18 +19,17 @@
   },
   "homepage": "https://github.com/lucagez/tattica#readme",
   "devDependencies": {
-    "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.26.3",
     "chai": "^4.2.0",
     "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "microbundle": "^0.9.0",
     "mocha": "^5.2.0",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "http-server": "^0.11.1"
   }
 }

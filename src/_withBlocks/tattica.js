@@ -12,7 +12,7 @@ const tattica = (config = {}) => {
   window.addEventListener('load', () => {
     console.log('loaded initial');
     window.requestIdleCallback(async () => {
-      console.log('arrived idle state');
+      console.log('arrived idle statevhvCAZZO');
       const queue = makeQueue(flags);
       await loader(queue.withPriority);
       console.log('loaded high priority');

@@ -14,7 +14,7 @@ const loader = async (elements, resolve, index = 0) => {
   loadSingle(elements[index])
     .then(() => {
       window.requestIdleCallback(() => {
-        // console.log('loading another');
+        console.log('loading another');
         loader(elements, resolve, newIndex);
       }, { timeout: 1000 });
     });
