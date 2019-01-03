@@ -1,10 +1,14 @@
 _withBlocks became the main part of this library
 
+NOW IT'S NOT WORKING!!!
+
 TODO:
 [x] moved to Webpack
 [x] add waitIntersections in main
 [ ] transfer _withBlocks in main part
-[ ] divide modules in lib/
+[x] divide modules in lib/
 [ ] pass navigator.connection.effectivetype to loader
     - ad props in loader => load effectivetype relative to 'connectionValue'
 [ ] decide between browsersync and http-server
+
+[ ] arrived at loader in transforming everything to object (easier to mantain)

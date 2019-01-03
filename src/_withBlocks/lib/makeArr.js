@@ -7,6 +7,7 @@ const makeArr = (elements) => {
     arr.push({
       el: e,
       key: i,
+      priority: Number(attribute(attr, 'data-priority') || attribute(attr, 'data-priority-block')) || null,
       order: {
         dataPriority: attribute(attr, 'data-priority'),
         dataPriorityBlock: attribute(attr, 'data-priority-block'),
