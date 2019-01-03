@@ -2,7 +2,7 @@ import loadSingle from './loadSingle';
 import loadBlock from './loadBlock';
 import waitIdle from './waitIdle';
 
-const loader = async (elements, resolve, index = 0) => {
+const loader = async (elements, connection, resolve, index = 0) => {
   const newIndex = index + 1;
   if (!elements[index]) {
     resolve();
@@ -14,9 +14,11 @@ const loader = async (elements, resolve, index = 0) => {
   if (hasBlockPriority) await loadBlock(elements, hasBlockPriority.value);
   if (!hasBlockPriority && !hasBlock) await loadSingle(elements[index]);
   await waitIdle();
-  loader(elements, resolve, newIndex);
+  loader(elements, connection, resolve, newIndex);
 };
 
-const loaderWithPromise = elements => new Promise(resolve => loader(elements, resolve));
+const loaderWithPromise = (elements, connection) => {
+  return new Promise(resolve => loader(elements, connection, resolve));
+};
 
 export default loaderWithPromise;
