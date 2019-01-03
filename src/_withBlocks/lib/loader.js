@@ -10,7 +10,6 @@ const loader = async (elements, connection, resolve, index = 0) => {
   }
   const hasBlock = elements[index].attributes['data-block'];
   const hasBlockPriority = elements[index].attributes['data-priority-block'];
-  console.log(hasBlockPriority);
   if (hasBlock) await loadBlock(elements, hasBlock.value, connection);
   if (hasBlockPriority) await loadBlock(elements, hasBlockPriority.value, connection);
   if (!hasBlockPriority && !hasBlock) await loadSingle(elements[index], connection);

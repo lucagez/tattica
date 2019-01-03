@@ -1,6 +1,7 @@
 const placeholder = (elements, string = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=') => {
-  elements.forEach((e) => {
-    if (!e.src) e.src = string;
+  elements.forEach((node) => {
+    const element = node.el;
+    if (!element.src || element.src === '') element.src = string;
   });
 };
 
