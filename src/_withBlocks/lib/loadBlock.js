@@ -1,9 +1,9 @@
 import loadSingle from './loadSingle';
 
-const loadBlock = (elements, blockNum) => {
+const loadBlock = (elements, blockNum, connection) => {
   const block = Object.keys(elements)
     .filter((e) => {
-      const attr = elements[e].attributes['data-block'] || elements[e].attributes['data-block-priority'] || {};
+      const attr = elements[e].attributes['data-block'] || elements[e].attributes['data-priority-block'] || {};
       const { value } = attr;
       return value === blockNum;
     })
@@ -13,7 +13,7 @@ const loadBlock = (elements, blockNum) => {
   return new Promise((resolve) => {
     const promises = [];
     for (const img of block) {
-      promises.push(loadSingle(img));
+      promises.push(loadSingle(img, connection));
     }
     Promise.all(promises).then(() => resolve());
   });

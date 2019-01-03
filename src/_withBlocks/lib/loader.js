@@ -9,10 +9,11 @@ const loader = async (elements, connection, resolve, index = 0) => {
     return;
   }
   const hasBlock = elements[index].attributes['data-block'];
-  const hasBlockPriority = elements[index].attributes['data-block-priority'];
-  if (hasBlock) await loadBlock(elements, hasBlock.value);
-  if (hasBlockPriority) await loadBlock(elements, hasBlockPriority.value);
-  if (!hasBlockPriority && !hasBlock) await loadSingle(elements[index]);
+  const hasBlockPriority = elements[index].attributes['data-priority-block'];
+  console.log(hasBlockPriority);
+  if (hasBlock) await loadBlock(elements, hasBlock.value, connection);
+  if (hasBlockPriority) await loadBlock(elements, hasBlockPriority.value, connection);
+  if (!hasBlockPriority && !hasBlock) await loadSingle(elements[index], connection);
   await waitIdle();
   loader(elements, connection, resolve, newIndex);
 };

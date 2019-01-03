@@ -1,8 +1,9 @@
 
-const loadSingle = (img, which) => {
+const loadSingle = (img, connection) => {
   const ref = img;
-  const attr = ref.attributes[which] || 'data-src';
-  const src = ref.attributes[attr].value;
+  const attr = ref.attributes[connection.string || 'data-src'];
+  console.log(connection);
+  const src = attr.value;
   const isLoaded = img.attributes['data-is-loaded'];
   return new Promise((resolve, reject) => {
     if (isLoaded) resolve();

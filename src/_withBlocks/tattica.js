@@ -15,11 +15,9 @@ const tattica = (config = {}) => {
       // console.log('arrived idle state');
       const queue = makeQueue(flags);
       console.log(queue);
-      await loader(queue.withPriority);
+      await loader(queue.withPriority, connectionType);
       // console.log('loaded high priority');
-      await loader(queue.withBlockPriority);
-      // console.log('with block priority');
-      await loader(queue.others);
+      await loader(queue.others, connectionType);
       // console.log('loaded everything');
     }, { timeout: 2000 });
   });
