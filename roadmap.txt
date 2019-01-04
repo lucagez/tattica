@@ -12,5 +12,4 @@ TODO:
 [x] decide between browsersync and http-server
 [x] arrived at loader in transforming everything to object (easier to mantain)
 [x] add timestamp feature
-
-[ ] set up mocha and puppeteer testing
+[x] set up mocha and puppeteer testing
