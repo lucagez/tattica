@@ -9,7 +9,7 @@ const loadSingle = (node, connection) => {
   return new Promise((resolve, reject) => {
     if (isLoaded) resolve();
     el.onload = () => {
-      if (timestamp) el.setAttribute('data-timestamp', Date.now());
+      if (timestamp) el.setAttribute('data-timestamp-loaded', Date.now());
       el.setAttribute('data-is-loaded', true);
       resolve();
     };
@@ -22,10 +22,11 @@ const loadSingle = (node, connection) => {
         fallUsed: fallback,
         key: node.key,
       };
-      if (timestamp) el.setAttribute('data-timestamp', Date.now());
+      if (timestamp) el.setAttribute('data-timestamp-loaded', Date.now());
       el.src = fallback;
       reject(error);
     };
+    if (timestamp) el.setAttribute('data-timestamp-start', Date.now());
     el.src = asset;
   });
 };

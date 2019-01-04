@@ -1,7 +1,7 @@
-import loadSingle from './loadSingle.mjs';
-import loadBlock from './loadBlock.mjs';
-import waitIdle from './waitIdle.mjs';
-import error from './error.mjs';
+import loadSingle from './loadSingle';
+import loadBlock from './loadBlock';
+import waitIdle from './waitIdle';
+import error from './error';
 
 const loader = async (elements, connection, resolve, index = 0) => {
   const newIndex = index + 1;

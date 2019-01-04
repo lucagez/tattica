@@ -2,7 +2,8 @@ module.exports = {
   "env": {
     "browser": true,
     "node": true,
-    "es6": true
+    "es6": true,
+    "mocha": true,
   },
   "parserOptions": {
     sourceType: 'module',
@@ -11,7 +12,7 @@ module.exports = {
   "extends": "airbnb-base",
   "settings": {
     "import/resolver": {
-      "node": {
+      "breowser": {
         "extensions": [
           ".js",
           ".mjs"
@@ -22,6 +23,8 @@ module.exports = {
   "globals": {
     DOMException: false,
     URL: false,
+    browser: true,
+    expect: true,
   },
   "rules": {
     "no-restricted-syntax": ["error", "ForInStatement", "LabeledStatement", "WithStatement"],

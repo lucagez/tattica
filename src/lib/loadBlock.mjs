@@ -1,5 +1,5 @@
-import loadSingle from './loadSingle.mjs';
-import error from './error.mjs';
+import loadSingle from './loadSingle';
+import error from './error';
 
 const loadBlock = (block, connection) => new Promise((resolve) => {
   const promises = [];

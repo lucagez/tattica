@@ -7,7 +7,7 @@
     "dev": "microbundle src/tattica.mjs -w & browser-sync . --port 4000 -w --no-open",
     "build": "microbundle src/tattica.mjs",
     "build:dev": "DEV=TRUE webpack --mode development",
-    "test": "npm run build && mocha test/test.js test"
+    "test": "npm run build && mocha --timeout 20000 --recursive test"
   },
   "repository": {
     "type": "git",
@@ -23,10 +23,13 @@
     "babel-eslint": "^10.0.1",
     "browser-sync": "^2.26.3",
     "chai": "^4.2.0",
+    "chai-arrays": "^2.0.0",
     "compression-webpack-plugin": "^2.0.0",
     "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "http-server": "^0.11.1",
+    "lodash": "^4.17.11",
     "microbundle": "^0.9.0",
     "mocha": "^5.2.0",
     "puppeteer": "^1.11.0",
