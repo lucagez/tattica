@@ -2,12 +2,12 @@
   "name": "tattica",
   "version": "0.0.1",
   "description": "Tactical and adaptive asset loading library",
-  "main": "dist/main.js",
+  "main": "dist/tattica.mjs",
   "scripts": {
-    "dev": "DEV=TRUE webpack --mode development --watch & browser-sync . -w --no-open",
-    "build": "webpack --mode production",
+    "dev": "microbundle src/tattica.mjs -w & browser-sync . --port 4000 -w --no-open",
+    "build": "microbundle src/tattica.mjs",
     "build:dev": "DEV=TRUE webpack --mode development",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run build && mocha test/test.js test"
   },
   "repository": {
     "type": "git",
@@ -27,8 +27,9 @@
     "eslint": "^5.11.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "http-server": "^0.11.1",
+    "microbundle": "^0.9.0",
     "mocha": "^5.2.0",
+    "puppeteer": "^1.11.0",
     "rimraf": "^2.6.3",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.1.2"

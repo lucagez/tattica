@@ -6,10 +6,10 @@ const buildPath = path.join(__dirname, '/dist/');
 rimraf.sync(buildPath);
 
 module.exports = {
-  entry: path.join(__dirname, '/src/tattica.js'),
+  entry: path.join(__dirname, '/src/tattica.mjs'),
   output: {
     path: buildPath,
-    filename: 'tattica.js',
+    filename: 'tattica.mjs',
   },
   devtool: process.env.DEV ? 'source-map' : 'none',
 };
