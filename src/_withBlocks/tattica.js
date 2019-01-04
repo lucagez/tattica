@@ -8,6 +8,8 @@ import connection from './lib/connection';
 const tattica = (config = {}) => {
   const flags = document.querySelectorAll(config.flag || '[data-flag]');
   const elements = makeArr(flags);
+
+  console.log(elements);
   const connectionType = connection();
   placeholder(elements, config.string);
   window.addEventListener('load', () => {
