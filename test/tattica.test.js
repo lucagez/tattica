@@ -51,7 +51,7 @@ describe('Tattica testing', async () => {
     });
     const block = await page.evaluate(() => Array
       .from(document.querySelectorAll('[data-block="1"]'))
-      .map(e => Math.floor(Number(e.attributes['data-timestamp-start'].value) * 0.01)))
+      .map(e => Math.floor(Number(e.attributes['data-timestamp-start'].value) * 0.01)));
     for (let i = 0; i < block.length - 1; i += 1) {
       expect(block[i]).to.be.equal(block[i + 1]);
     }
