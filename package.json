@@ -2,7 +2,11 @@
   "name": "tattica",
   "version": "0.0.1",
   "description": "Tactical and adaptive asset loading library",
-  "main": "dist/tattica.mjs",
+  "main": "dist/tattica.js",
+  "module": "dist/tattica.mjs",
+  "jsnext:main": "dist/tattica.mjs",
+  "umd:main": "dist/tattica.umd.js",
+  "unpkg": "dist/tattica.umd.js",
   "scripts": {
     "dev": "microbundle src/tattica.mjs -w & browser-sync . --port 4000 -w --no-open",
     "build": "microbundle src/tattica.mjs",
@@ -13,11 +17,21 @@
     "type": "git",
     "url": "git+https://github.com/lucagez/tattica.git"
   },
-  "author": "Luca Gesmundo",
+  "author": "Luca Gesmundo <lucagesmundo@yahoo.it>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lucagez/tattica/issues"
   },
+  "keywords": [
+    "images preload",
+    "image loading",
+    "asset loading",
+    "performance",
+    "preload",
+    "intersectionobserver",
+    "background",
+    "speed"
+  ],
   "homepage": "https://github.com/lucagez/tattica#readme",
   "devDependencies": {
     "babel-eslint": "^10.0.1",
