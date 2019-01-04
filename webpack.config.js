@@ -1,9 +1,15 @@
+const rimraf = require('rimraf');
+const process = require('process');
 const path = require('path');
 
+const buildPath = path.join(__dirname, '/dist/');
+rimraf.sync(buildPath);
+
 module.exports = {
-  entry: path.join(__dirname, '/src/_withBlocks/tattica.js'),
+  entry: path.join(__dirname, '/src/tattica.js'),
   output: {
-    path: path.join(__dirname, '/dist/'),
+    path: buildPath,
+    filename: 'tattica.js',
   },
-  devtool: 'source-map',
+  devtool: process.env.DEV ? 'source-map' : 'none',
 };
