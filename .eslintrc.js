@@ -24,6 +24,13 @@ module.exports = {
     URL: false,
   },
   "rules": {
-    "no-restricted-syntax": ["error", "ForInStatement", "LabeledStatement", "WithStatement"]
+    "no-restricted-syntax": ["error", "ForInStatement", "LabeledStatement", "WithStatement"],
+    "max-len": ["error", 130, 2, {
+          ignoreUrls: true,
+          ignoreComments: false,
+          ignoreRegExpLiterals: true,
+          ignoreStrings: false,
+          ignoreTemplateLiterals: false,
+        }],
   }
 };

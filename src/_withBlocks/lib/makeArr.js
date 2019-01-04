@@ -1,4 +1,7 @@
-const attribute = (a, string) => a[string] ? a[string].value : null;
+const attribute = (a, string) => {
+  if (a[string]) return a[string].value;
+  return null;
+};
 
 const makeArr = (elements) => {
   const arr = [];

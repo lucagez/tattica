@@ -1,24 +1,28 @@
 import loadSingle from './loadSingle';
 import loadBlock from './loadBlock';
 import waitIdle from './waitIdle';
+import error from './error';
 
 const loader = async (elements, connection, resolve, index = 0) => {
   const newIndex = index + 1;
-  if (!elements[index]) {
+  const element = elements[index];
+  if (!element) {
     resolve();
     return;
   }
-  const hasBlock = elements[index].attributes['data-block'];
-  const hasBlockPriority = elements[index].attributes['data-priority-block'];
-  if (hasBlock) await loadBlock(elements, hasBlock.value, connection);
-  if (hasBlockPriority) await loadBlock(elements, hasBlockPriority.value, connection);
-  if (!hasBlockPriority && !hasBlock) await loadSingle(elements[index], connection);
+  const {
+    dataBlock,
+    dataPriorityBlock,
+  } = element.order;
+  const hasBlock = dataBlock || dataPriorityBlock;
+  if (hasBlock) {
+    const block = elements.filter(e => e.order.dataBlock || e.order.dataPriorityBlock);
+    await loadBlock(block, connection);
+  } else await loadSingle(element, connection).catch(error);
   await waitIdle();
   loader(elements, connection, resolve, newIndex);
 };
 
-const loaderWithPromise = (elements, connection) => {
-  return new Promise(resolve => loader(elements, connection, resolve));
-};
+const loaderWithPromise = (elements, connection) => new Promise(resolve => loader(elements, connection, resolve));
 
 export default loaderWithPromise;
