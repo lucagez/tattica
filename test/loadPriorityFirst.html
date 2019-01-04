@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Load Sync</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Tattica testing <code>sync load</code></h1>
+        <div class="container">
+            <img src="https://source.unsplash.com/900x900/?pc" alt="0">
+        </div>
+        <div class="container">
+            <img 
+                data-flag
+                data-src="https://source.unsplash.com/900x900/?nature" 
+                alt="1">
+        </div>
+        <div class="container">
+            <img 
+                data-flag
+                data-src="https://source.unsplash.com/900x900/?nature" 
+                alt="1">
+        </div>
+        <div class="container">
+            <img data-flag data-src="https://source.unsplash.com/900x900/?water" alt="2">
+        </div>
+        <div class="container">
+            <img data-flag data-priority="1" data-src="https://source.unsplash.com/900x900/?car" alt="3">
+        </div>
+        <div class="container">
+            <img data-flag data-priority="2" data-src="https://source.unsplash.com/900x900/?sword" alt="1">
+        </div>
+        <div class="container">
+            <img data-flag data-priority="3" data-src="https://source.unsplash.com/900x900/?horse" alt="2">
+        </div>
+    </div>
+    <style>
+        .container {
+            min-height: 100vh;
+            height: 110vh;
+        }
+    </style>
+    <script src="../dist/tattica.umd.js"></script>
+    <script type="text/javascript">
+        const config = {
+            timestamp: true,
+        }
+        tattica(config);
+    </script>
+</body>
+
+</html>
