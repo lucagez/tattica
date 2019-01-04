@@ -8,7 +8,7 @@ import connection from './lib/connection';
 const tattica = (config = {}) => {
   const flags = document.querySelectorAll(config.flag || '[data-flag]');
   // console.log(flags);
-  const elements = makeArr(flags);
+  const elements = makeArr(flags, config);
   const connectionType = connection();
   placeholder(elements, config.string);
   window.addEventListener('load', () => {
@@ -21,4 +21,8 @@ const tattica = (config = {}) => {
   });
 };
 
-tattica();
+const config = {
+  timestamp: true,
+};
+
+tattica(config);

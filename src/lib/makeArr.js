@@ -3,13 +3,14 @@ const attribute = (a, string) => {
   return null;
 };
 
-const makeArr = (elements) => {
+const makeArr = (elements, config) => {
   const arr = [];
   elements.forEach((e, i) => {
     const attr = e.attributes;
     arr.push({
       el: e,
       key: i,
+      timestamp: config.timestamp,
       priority: Number(attribute(attr, 'data-priority') || attribute(attr, 'data-priority-block')) || null,
       order: {
         dataPriority: attribute(attr, 'data-priority'),
