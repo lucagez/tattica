@@ -1,0 +1,11 @@
+language: node_js
+sudo: required
+node_js:
+  - node
+
+script:
+  - npm test
+
+notifications:
+  email:
+    on_failure: change
