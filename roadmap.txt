@@ -5,10 +5,12 @@ NOW IT'S NOT WORKING!!!
 TODO:
 [x] moved to Webpack
 [x] add waitIntersections in main
-[ ] transfer _withBlocks in main part
+[x] transfer _withBlocks in main part
 [x] divide modules in lib/
-[ ] pass navigator.connection.effectivetype to loader
+[x] pass navigator.connection.effectivetype to loader
     - ad props in loader => load effectivetype relative to 'connectionValue'
-[ ] decide between browsersync and http-server
+[x] decide between browsersync and http-server
+[x] arrived at loader in transforming everything to object (easier to mantain)
 
-[ ] arrived at loader in transforming everything to object (easier to mantain)
+[ ] add timestamp feature
+[ ] set up mocha and puppeteer testing
