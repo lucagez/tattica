@@ -13,3 +13,7 @@ TODO:
 [x] arrived at loader in transforming everything to object (easier to mantain)
 [x] add timestamp feature
 [x] set up mocha and puppeteer testing
+
+[ ] polish tests (group functions, refactoring...)
+[ ] add tests for connection.js
+[ ] add demos
