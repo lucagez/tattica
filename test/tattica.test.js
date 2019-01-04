@@ -17,17 +17,9 @@ describe('Tattica testing', async () => {
     const timestamps = await page.evaluate(() => Array
       .from(document.querySelectorAll('[data-flag]'))
       .map(e => Number(e.attributes['data-timestamp-loaded'].value)));
-    // const loadingTimes = timestamps
-    //   .map((e, i) => {
-    //     if (!timestamps[i + 1]) return null;
-    //     if (e < timestamps[i + 1]) return 0;
-    //     return 1;
-    //   })
-    //   .filter(e => e !== null);
     for (let i = 0; i < timestamps.length - 1; i += 1) {
       expect(timestamps[i]).to.be.below(timestamps[i + 1]);
     }
-    // expect(loadingTimes).to.be.an('array').that.does.not.include(1);
   });
 
   it('Should load all images, given correct URLs', async () => {
@@ -62,6 +54,18 @@ describe('Tattica testing', async () => {
       .map(e => Math.floor(Number(e.attributes['data-timestamp-start'].value) * 0.01)))
     for (let i = 0; i < block.length - 1; i += 1) {
       expect(block[i]).to.be.equal(block[i + 1]);
+    }
+  });
+
+  it('Should load synchronously group of images that contain a block', async () => {
+    await page.goto(`${server}/loadSyncWithBlocks.html`, {
+      waitUntil: 'networkidle0',
+    });
+    const timestamps = await page.evaluate(() => Array
+      .from(document.querySelectorAll('[data-flag]'))
+      .map(e => Number(e.attributes['data-timestamp-loaded'].value)));
+    for (let i = 0; i < timestamps.length - 1; i += 1) {
+      expect(timestamps[i]).to.be.at.most(timestamps[i + 1]);
     }
   });
 
