@@ -5,6 +5,12 @@ node_js:
 
 cache: npm
 
+before_install:
+  - chmod +x start-server.sh
+
+before_script:
+  - './start-server.sh'
+
 script:
   - npm test
 
