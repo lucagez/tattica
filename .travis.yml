@@ -3,6 +3,8 @@ sudo: required
 node_js:
   - node
 
+cache: npm
+
 script:
   - npm test
 
