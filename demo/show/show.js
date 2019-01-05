@@ -20,14 +20,7 @@ const uniqueSrc = (img) => {
 };
 
 const loadAnimation = (img) => {
-<<<<<<< HEAD
-  img.addEventListener('load', (e) => {
-    e.preventDefault();
-    e.target.classList.add('pulse');
-  });
-=======
   img.classList.add('pulse');
->>>>>>> 2886893f917266862d4ca0bcdcc04148b678d43c
 };
 
 normals.forEach(loadAnimation);
