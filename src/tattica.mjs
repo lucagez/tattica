@@ -9,6 +9,7 @@ const tattica = (config = {}) => {
   const flag = config.flag || 'data-flag';
   const flags = document.querySelectorAll(`[${flag}]`);
   const elements = makeArr(flags, config);
+  console.log(elements);
   const connectionType = connection();
   placeholder(elements, config.string);
   window.addEventListener('load', () => {

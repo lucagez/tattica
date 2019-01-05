@@ -1,11 +1,6 @@
 const headers = new Headers();
 const images = document.querySelectorAll('img');
 const sync = document.querySelectorAll('.sync');
-const config = {
-  timestamp: true,
-  waitLoad: false,
-  loadIntersections: false,
-};
 
 headers.append('Pragma-Directive', 'no-cache');
 headers.append('Cache-Directive', 'no-cache');
@@ -24,16 +19,19 @@ const uniqueSrc = (img) => {
 };
 
 const loadAnimation = (img) => {
-  img.addEventListener('load', (e) => {
-    e.preventDefault();
-    e.target.classList.remove('pulse');
-    e.target.classList.add('pulse');
-  });
+  img.classList.add('pulse');
 };
 
 // images.forEach(loadAnimation);
 images.forEach(placeholder);
 images.forEach(uniqueSrc);
+
+const config = {
+  timestamp: true,
+  waitLoad: false,
+  loadIntersections: false,
+  callback: loadAnimation,
+};
 
 sync.forEach(button => button.addEventListener('click', (e) => {
   const target = e.target.attributes['data-target'].value;

@@ -15,6 +15,7 @@ TODO:
 [x] set up mocha and puppeteer testing
 [x] update `npm run build:dev` in package.json => no webpack
 
+[ ] add callback functionality on loadSingle
 [ ] polish tests (group functions, refactoring...)
 [ ] add tests for connection.js
-[ ] add demos
+[-] add demos
