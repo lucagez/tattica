@@ -1,6 +1,8 @@
-_withBlocks became the main part of this library
+# Tattica
 
-NOW IT'S NOT WORKING!!!
+- STATUS: working
+- COMPLETION: 80%
+- MAIN MISSING: docs and readme
 
 TODO:
 [x] moved to Webpack
@@ -14,7 +16,12 @@ TODO:
 [x] add timestamp feature
 [x] set up mocha and puppeteer testing
 [x] update `npm run build:dev` in package.json => no webpack
+[x] Moved back to microbundle => This library doesn't need all webpack power
 
-[ ] polish tests (group functions, refactoring...)
+[ ] polish tests (grouping functions, refactoring...)
 [ ] add tests for connection.js
+[ ] add test for `loadSingle` callback
 [ ] add demos
+    [ ] dummy - at least 1
+    [ ] real world - at least 2
+    [ ] finish `Carousel - test`

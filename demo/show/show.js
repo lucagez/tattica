@@ -1,5 +1,6 @@
 const headers = new Headers();
 const images = document.querySelectorAll('img');
+const normals = document.querySelectorAll('.normal');
 const sync = document.querySelectorAll('.sync');
 const config = {
   timestamp: true,
@@ -26,12 +27,11 @@ const uniqueSrc = (img) => {
 const loadAnimation = (img) => {
   img.addEventListener('load', (e) => {
     e.preventDefault();
-    e.target.classList.remove('pulse');
     e.target.classList.add('pulse');
   });
 };
 
-// images.forEach(loadAnimation);
+normals.forEach(loadAnimation);
 images.forEach(placeholder);
 images.forEach(uniqueSrc);
 

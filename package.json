@@ -11,7 +11,9 @@
     "dev": "microbundle src/tattica.mjs -w & browser-sync . --port 4000 -w --no-open",
     "build": "microbundle src/tattica.mjs --no-sourcemap",
     "build:dev": "microbundle src/tattica.mjs",
-    "test": "npm run build && mocha --timeout 20000 --recursive test"
+    "test": "npm run build && mocha --timeout 20000 --recursive test",
+    "lint": "eslint src/*.mjs test/*.js demo/show/*.js",
+    "lint-fix": "eslint src/*.mjs test/*.js demo/show/*.js --fix"
   },
   "repository": {
     "type": "git",
