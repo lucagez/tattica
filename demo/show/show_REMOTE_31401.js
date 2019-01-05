@@ -1,6 +1,5 @@
 const headers = new Headers();
 const images = document.querySelectorAll('img');
-const normals = document.querySelectorAll('.normal');
 const sync = document.querySelectorAll('.sync');
 
 headers.append('Pragma-Directive', 'no-cache');
@@ -20,17 +19,10 @@ const uniqueSrc = (img) => {
 };
 
 const loadAnimation = (img) => {
-<<<<<<< HEAD
-  img.addEventListener('load', (e) => {
-    e.preventDefault();
-    e.target.classList.add('pulse');
-  });
-=======
   img.classList.add('pulse');
->>>>>>> 2886893f917266862d4ca0bcdcc04148b678d43c
 };
 
-normals.forEach(loadAnimation);
+// images.forEach(loadAnimation);
 images.forEach(placeholder);
 images.forEach(uniqueSrc);
 

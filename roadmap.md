@@ -19,6 +19,7 @@ TODO:
 [x] Moved back to microbundle => This library doesn't need all webpack power
 [x] Added CI linting in Travis  
 
+<<<<<<< HEAD:roadmap.md
 [ ] polish tests (grouping functions, refactoring...)
 [ ] add tests for connection.js
 [ ] add test for `loadSingle` callback
@@ -26,3 +27,9 @@ TODO:
     [ ] dummy - at least 1
     [ ] real world - at least 2
     [ ] finish `Carousel - test`
+=======
+[ ] add callback functionality on loadSingle
+[ ] polish tests (group functions, refactoring...)
+[ ] add tests for connection.js
+[-] add demos
+>>>>>>> 2886893f917266862d4ca0bcdcc04148b678d43c:roadmap.txt
