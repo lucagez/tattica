@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Showcase</title>
+    <link rel="stylesheet" href="show.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="title">
+                <h1>Tattica.js demo</h1>
+                <p>This is how you normally load images</p>
+            </div>
+            <div class="gallery">
+                <div class="box"><img class="normal" src="https://source.unsplash.com/200x200/?water" alt="1"></div>
+                <div class="box"><img class="normal" src="https://source.unsplash.com/200x200/?car" alt="2"></div>
+                <div class="box"><img class="normal" src="https://source.unsplash.com/200x200/?sword" alt="3"></div>
+                <div class="box"><img class="normal" src="https://source.unsplash.com/200x200/?horse" alt="4"></div>
+                <div class="box"><img class="normal" src="https://source.unsplash.com/200x200/?rain" alt="5"></div>
+                <div class="box"><img class="normal" src="https://source.unsplash.com/200x200/?mountain" alt="6"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="title">
+                <h1>Sync loading</h1>
+                <p>Tattica.js loading images synchronously</p>
+                <button id="sync" type="button">load</button>
+            </div>
+            <div class="gallery">
+                <div class="box"><p class="num">1</p><img data-flag data-src="https://source.unsplash.com/200x200/?water" alt="1"></div>
+                <div class="box"><p class="num">2</p><img data-flag data-src="https://source.unsplash.com/200x200/?car" alt="2"></div>
+                <div class="box"><p class="num">3</p><img data-flag data-src="https://source.unsplash.com/200x200/?sword" alt="3"></div>
+                <div class="box"><p class="num">4</p><img data-flag data-src="https://source.unsplash.com/200x200/?horse" alt="4"></div>
+                <div class="box"><p class="num">5</p><img data-flag data-src="https://source.unsplash.com/200x200/?rain" alt="5"></div>
+                <div class="box"><p class="num">6</p><img data-flag data-src="https://source.unsplash.com/200x200/?mountain" alt="6"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../../dist/tattica.umd.js"></script>
+    <script src="./show.js"></script>
+</body>
+</html>

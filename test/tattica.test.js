@@ -1,5 +1,5 @@
 describe('Tattica testing', async () => {
-  const server = 'http://127.0.0.1:8080/test';
+  const server = 'http://127.0.0.1:8080/test/pages';
   let page;
 
   before(async () => {

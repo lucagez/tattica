@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lucagez/tattica.git"
+    "url": "https://github.com/lucagez/tattica.git"
   },
   "author": "Luca Gesmundo <lucagesmundo@yahoo.it>",
   "license": "MIT",
@@ -30,7 +30,11 @@
     "preload",
     "intersectionobserver",
     "background",
-    "speed"
+    "speed",
+    "wait for idle",
+    "requestidlecallback",
+    "idle",
+    "adaptive serving"
   ],
   "homepage": "https://github.com/lucagez/tattica#readme",
   "devDependencies": {

@@ -14,6 +14,7 @@ TODO:
 [x] add timestamp feature
 [x] set up mocha and puppeteer testing
 
+[ ] update `npm run build:dev` in package.json => no webpack
 [ ] polish tests (group functions, refactoring...)
 [ ] add tests for connection.js
 [ ] add demos

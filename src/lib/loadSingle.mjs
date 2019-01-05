@@ -28,6 +28,7 @@ const loadSingle = (node, connection) => {
     };
     if (timestamp) el.setAttribute('data-timestamp-start', Date.now());
     el.src = asset;
+    el.style.visibility = 'visible';
   });
 };
 
