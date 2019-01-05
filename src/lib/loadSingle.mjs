@@ -3,15 +3,17 @@ const loadSingle = (node, connection) => {
     el,
     src,
     timestamp,
+    callback,
   } = node;
   const asset = src[connection.string] || src.default;
   const isLoaded = el.attributes['data-is-loaded'];
   return new Promise((resolve, reject) => {
     if (isLoaded) resolve();
     el.onload = () => {
-      if (timestamp) el.setAttribute('data-timestamp-loaded', Date.now());
       el.style.visibility = 'visible';
       el.setAttribute('data-is-loaded', true);
+      if (timestamp) el.setAttribute('data-timestamp-loaded', Date.now());
+      if (callback) callback(el);
       resolve();
     };
     el.onerror = (err) => {

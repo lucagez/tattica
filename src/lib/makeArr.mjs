@@ -24,6 +24,7 @@ const makeArr = (elements, config) => {
         slow: attribute(attr, 'data-src-slow'),
         fall: attribute(attr, 'data-src-fall'),
       },
+      callback: config.callback || null,
     });
   });
   return arr;
