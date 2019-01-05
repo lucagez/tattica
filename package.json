@@ -9,8 +9,8 @@
   "unpkg": "dist/tattica.umd.js",
   "scripts": {
     "dev": "microbundle src/tattica.mjs -w & browser-sync . --port 4000 -w --no-open",
-    "build": "microbundle src/tattica.mjs",
-    "build:dev": "DEV=TRUE webpack --mode development",
+    "build": "microbundle src/tattica.mjs --no-sourcemap",
+    "build:dev": "microbundle src/tattica.mjs",
     "test": "npm run build && mocha --timeout 20000 --recursive test"
   },
   "repository": {
