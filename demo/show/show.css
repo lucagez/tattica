@@ -48,6 +48,16 @@ body {
     color: #f9f9f9;
 }
 
+.carousel {
+    width: 100px!important;
+    margin: 10px 15px;
+}
+
+.carousel img {
+    max-width: 100%;
+    max-height: 200%;
+}
+
 .pulse {
     box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
     -webkit-animation: pulse 1.25s cubic-bezier(0.66, 0, 0, 1);

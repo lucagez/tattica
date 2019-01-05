@@ -13,8 +13,8 @@ TODO:
 [x] arrived at loader in transforming everything to object (easier to mantain)
 [x] add timestamp feature
 [x] set up mocha and puppeteer testing
+[x] update `npm run build:dev` in package.json => no webpack
 
-[ ] update `npm run build:dev` in package.json => no webpack
 [ ] polish tests (group functions, refactoring...)
 [ ] add tests for connection.js
 [ ] add demos

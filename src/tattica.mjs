@@ -6,8 +6,8 @@ import placeholder from './lib/placeholder';
 import connection from './lib/connection';
 
 const tattica = (config = {}) => {
-  const flag = config.flag ? `${[config.flag]}` : '[data-flag]';
-  const flags = document.querySelectorAll(flag);
+  const flag = config.flag || 'data-flag';
+  const flags = document.querySelectorAll(`[${flag}]`);
   const elements = makeArr(flags, config);
   const connectionType = connection();
   placeholder(elements, config.string);
