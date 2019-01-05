@@ -17,6 +17,7 @@ TODO:
 [x] set up mocha and puppeteer testing
 [x] update `npm run build:dev` in package.json => no webpack
 [x] Moved back to microbundle => This library doesn't need all webpack power
+[x] Added CI linting in Travis  
 
 [ ] polish tests (grouping functions, refactoring...)
 [ ] add tests for connection.js
