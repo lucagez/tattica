@@ -1,6 +1,12 @@
 body {
     background: palegoldenrod;
     font-family: monospace;
+    color: #333;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
 }
 
 .gallery {
@@ -11,6 +17,7 @@ body {
 
 .box {
     display: block;
+    position: relative;
 
     width: 200px;
     height: 200px;
@@ -25,14 +32,20 @@ body {
     object-fit: fill;
 }
 
-.box .num {
+.box .num, .box .priority {
     position: absolute;
     font-size: 36px;
     margin: 10px;
     padding: 0 5px;
     border-radius: 5px;
     background: palegoldenrod;
-    /* color: palegoldenrod; */
+}
+
+.box .priority {
+    bottom: 0;
+    background: red;
+    font-size: 16px;
+    color: #f9f9f9;
 }
 
 .pulse {
@@ -41,6 +54,7 @@ body {
     -moz-animation: pulse 1.25s cubic-bezier(0.66, 0, 0, 1);
     -ms-animation: pulse 1.25s cubic-bezier(0.66, 0, 0, 1);
     animation: pulse 1.25s cubic-bezier(0.66, 0, 0, 1);
+    animation-delay: 100ms;
 }
 
 @-webkit-keyframes pulse {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Showcase</title>
     <link rel="stylesheet" href="show.css">
 </head>
+
 <body>
     <div class="wrapper">
         <div class="container">
@@ -27,19 +29,93 @@
             <div class="title">
                 <h1>Sync loading</h1>
                 <p>Tattica.js loading images synchronously</p>
-                <button id="sync" type="button">load</button>
+                <button class="sync" type="button" data-target="data-flag-1">load</button>
             </div>
-            <div class="gallery">
-                <div class="box"><p class="num">1</p><img data-flag data-src="https://source.unsplash.com/200x200/?water" alt="1"></div>
-                <div class="box"><p class="num">2</p><img data-flag data-src="https://source.unsplash.com/200x200/?car" alt="2"></div>
-                <div class="box"><p class="num">3</p><img data-flag data-src="https://source.unsplash.com/200x200/?sword" alt="3"></div>
-                <div class="box"><p class="num">4</p><img data-flag data-src="https://source.unsplash.com/200x200/?horse" alt="4"></div>
-                <div class="box"><p class="num">5</p><img data-flag data-src="https://source.unsplash.com/200x200/?rain" alt="5"></div>
-                <div class="box"><p class="num">6</p><img data-flag data-src="https://source.unsplash.com/200x200/?mountain" alt="6"></div>
+            <div class="gallery g1">
+                <div class="box">
+                    <p class="num">1</p><img data-flag-1 data-src="https://source.unsplash.com/200x200/?iphone" alt="1">
+                </div>
+                <div class="box">
+                    <p class="num">2</p><img data-flag-1 data-src="https://source.unsplash.com/200x200/?tablet" alt="2">
+                </div>
+                <div class="box">
+                    <p class="num">3</p><img data-flag-1 data-src="https://source.unsplash.com/200x200/?egg" alt="3">
+                </div>
+                <div class="box">
+                    <p class="num">4</p><img data-flag-1 data-src="https://source.unsplash.com/200x200/?rabbit" alt="4">
+                </div>
+                <div class="box">
+                    <p class="num">5</p><img data-flag-1 data-src="https://source.unsplash.com/200x200/?goose" alt="5">
+                </div>
+                <div class="box">
+                    <p class="num">6</p><img data-flag-1 data-src="https://source.unsplash.com/200x200/?guitar" alt="6">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="title">
+                <h1>block loading</h1>
+                <p>Tattica.js loading images in blocks</p>
+                <button class="sync" type="button" data-target="data-flag-2">load</button>
+            </div>
+            <div class="gallery g2">
+                <div class="box">
+                    <p class="num">block</p><img data-flag-2 data-block="1" data-src="https://source.unsplash.com/200x200/?soldier"
+                        alt="4">
+                </div>
+                <div class="box">
+                    <p class="num">4</p><img data-flag-2 data-src="https://source.unsplash.com/200x200/?museum"
+                        alt="5">
+                </div>
+                <div class="box">
+                    <p class="num">block</p><img data-flag-2 data-block="1" data-src="https://source.unsplash.com/200x200/?stars"
+                        alt="6">
+                </div>
+                <div class="box">
+                    <p class="num">5</p><img data-flag-2 data-src="https://source.unsplash.com/200x200/?bottle" alt="1">
+                </div>
+                <div class="box">
+                    <p class="num">block</p><img data-flag-2 data-block="1" data-src="https://source.unsplash.com/200x200/?table" alt="2">
+                </div>
+                <div class="box">
+                    <p class="num">6</p><img data-flag-2 data-src="https://source.unsplash.com/200x200/?shelter" alt="3">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="title">
+                <h1>Priority loading</h1>
+                <p>Tattica.js loading images with priority</p>
+                <button class="sync" type="button" data-target="data-flag-3">load</button>
+            </div>
+            <div class="gallery g2">
+                <div class="box">
+                    <p class="num">4</p><p class="priority">priority</p><img data-flag-3 data-priority="4" data-src="https://source.unsplash.com/200x200/?cavaliers"
+                        alt="1">
+                </div>
+                <div class="box">
+                    <p class="num">5</p><img data-flag-3 data-src="https://source.unsplash.com/200x200/?basket" alt="2">
+                </div>
+                <div class="box">
+                    <p class="num">3</p><p class="priority">priority</p><img data-flag-3 data-priority="3" data-src="https://source.unsplash.com/200x200/?ball"
+                        alt="3">
+                </div>
+                <div class="box">
+                    <p class="num">2</p><p class="priority">priority</p><img data-flag-3 data-priority="2" data-src="https://source.unsplash.com/200x200/?case"
+                        alt="4">
+                </div>
+                <div class="box">
+                    <p class="num">6</p><img data-flag-3 data-src="https://source.unsplash.com/200x200/?rock" alt="5">
+                </div>
+                <div class="box">
+                    <p class="num">1</p><p class="priority">priority</p><img data-flag-3 data-priority="1" data-src="https://source.unsplash.com/200x200/?bench"
+                        alt="6">
+                </div>
             </div>
         </div>
     </div>
     <script src="../../dist/tattica.umd.js"></script>
     <script src="./show.js"></script>
 </body>
+
 </html>

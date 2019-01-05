@@ -10,6 +10,7 @@ const loadSingle = (node, connection) => {
     if (isLoaded) resolve();
     el.onload = () => {
       if (timestamp) el.setAttribute('data-timestamp-loaded', Date.now());
+      el.style.visibility = 'visible';
       el.setAttribute('data-is-loaded', true);
       resolve();
     };
@@ -28,7 +29,6 @@ const loadSingle = (node, connection) => {
     };
     if (timestamp) el.setAttribute('data-timestamp-start', Date.now());
     el.src = asset;
-    el.style.visibility = 'visible';
   });
 };
 

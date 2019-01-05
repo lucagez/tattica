@@ -25,6 +25,7 @@ module.exports = {
     URL: false,
     browser: true,
     expect: true,
+    tattica: true,
   },
   "rules": {
     "no-restricted-syntax": ["error", "ForInStatement", "LabeledStatement", "WithStatement"],
