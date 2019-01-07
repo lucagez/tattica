@@ -11,6 +11,7 @@ const makeArr = (elements, config) => {
       el: e,
       key: i,
       timestamp: config.timestamp,
+      timeout: config.timeout !== undefined ? config.timeout : 1000,
       priority: Number(attribute(attr, 'data-priority') || attribute(attr, 'data-priority-block')) || null,
       order: {
         dataPriority: attribute(attr, 'data-priority'),

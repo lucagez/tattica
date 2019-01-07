@@ -32,7 +32,7 @@ body {
     object-fit: fill;
 }
 
-.box .num, .box .priority {
+.box .num, .box .priority, .box .block {
     position: absolute;
     font-size: 36px;
     margin: 10px;
@@ -41,11 +41,18 @@ body {
     background: palegoldenrod;
 }
 
-.box .priority {
+.box .priority, .box .block {
     bottom: 0;
-    background: red;
     font-size: 16px;
     color: #f9f9f9;
+}
+
+.box .priority {
+    background: red;
+}
+
+.box .block {
+    background: blue;
 }
 
 .carousel {

@@ -1,6 +1,7 @@
 # Tattica
 
 - STATUS: working
+- BUILD: passing
 - COMPLETION: 80%
 - MAIN MISSING: docs and readme
 
@@ -26,3 +27,4 @@ TODO:
     [ ] dummy - at least 1
     [ ] real world - at least 2
     [ ] finish `Carousel - test`
+[ ] add fallback => if `data-src` is not provided => use first non-null attribute as `default`

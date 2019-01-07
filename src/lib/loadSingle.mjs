@@ -3,12 +3,15 @@ const loadSingle = (node, connection) => {
     el,
     src,
     timestamp,
+    timeout,
     callback,
   } = node;
-  const asset = src[connection.string] || src.default;
+  console.log(timeout);
+  const asset = src[connection.string] || src.medium || src.slow || src.default;
   const isLoaded = el.attributes['data-is-loaded'];
   return new Promise((resolve, reject) => {
     if (isLoaded) resolve();
+    if (timeout) setTimeout(resolve, timeout);
     el.onload = () => {
       el.style.visibility = 'visible';
       el.setAttribute('data-is-loaded', true);

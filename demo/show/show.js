@@ -32,6 +32,7 @@ const config = {
   waitLoad: false,
   loadIntersections: false,
   callback: loadAnimation,
+  timeout: false,
 };
 
 sync.forEach(button => button.addEventListener('click', (e) => {

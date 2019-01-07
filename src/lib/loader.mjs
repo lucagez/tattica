@@ -16,7 +16,8 @@ const loader = async (elements, connection, resolve, index = 0) => {
   } = element.order;
   const hasBlock = dataBlock || dataPriorityBlock;
   if (hasBlock) {
-    const block = elements.filter(e => e.order.dataBlock || e.order.dataPriorityBlock);
+    const block = elements
+      .filter(e => e.order.dataBlock === hasBlock || e.order.dataPriorityBlock === hasBlock);
     await loadBlock(block, connection);
   } else {
     await loadSingle(element, connection).catch(error);
