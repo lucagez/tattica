@@ -1,6 +1,6 @@
 {
   "name": "tattica",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Tactical and adaptive asset loading library",
   "main": "dist/tattica.js",
   "module": "dist/tattica.mjs",

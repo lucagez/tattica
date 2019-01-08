@@ -1,8 +1,17 @@
+// return the value of the attribute {string} if the attribute exists
+// return null otherwise
 const attribute = (a, string) => {
   if (a[string]) return a[string].value;
   return null;
 };
 
+// Making an array referencing both the dom element and all his attributes is useful
+// because you otherwise have to read from the DOM every time you need to know some value.
+
+/**
+ * @param {Array} elements - Collection of DOM nodes flagged by target attribute. eg: `data-flag`
+ * @param {Object} config - Configuration object for tattica. Better explaination in `Tattica.mjs`
+ */
 const makeArr = (elements, config) => {
   const arr = [];
   elements.forEach((e, i) => {

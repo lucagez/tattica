@@ -1,3 +1,11 @@
+/**
+ * check `navigator.connection.effectivetype` to control on what type of connection the user is on
+ * => return an object referencing the:
+ *  @param {number} num - number corresponding to the connection type
+ *  @param {string} string - the status corresponding to the number. eg: `slow`, `medium`,
+ *  `default` (for faster than 3g connections)
+ *  @param {string} ref - the corresponding string used to match the correct attribute on the html element
+ */
 const connection = () => {
   const type = navigator.connection.effectiveType.split('g')[0];
   const typeNum = Number(type.match(/\d/)[0]);

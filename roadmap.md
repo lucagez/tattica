@@ -19,12 +19,14 @@ TODO:
 [x] update `npm run build:dev` in package.json => no webpack
 [x] Moved back to microbundle => This library doesn't need all webpack power
 [x] Added CI linting in Travis  
+[x] add fallback => if `data-src` is not provided => use first non-null attribute as `default`
+[x] add demos
+    [x] dummy - at least 1
+    [x] real world - at least 2
+    [x] finish `Carousel - test`
 
 [ ] polish tests (grouping functions, refactoring...)
-[ ] add tests for connection.js
-[ ] add test for `loadSingle` callback
-[ ] add demos
-    [ ] dummy - at least 1
-    [ ] real world - at least 2
-    [ ] finish `Carousel - test`
-[ ] add fallback => if `data-src` is not provided => use first non-null attribute as `default`
+[ ] tests
+    [ ] add test for `timeout` in loadSingle
+    [ ] add tests for connection.js
+    [ ] add test for `loadSingle` callback

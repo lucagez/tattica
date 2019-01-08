@@ -11,11 +11,19 @@
 
 <body>
     <div class="wrapper">
+        <div class="main-title">
+            <h1>Tattica.js</h1>
+            <p>A tactic approach to asset loading</p>
+
+        </div>
         <div class="container">
             <div class="title">
-                <h1>Tattica.js demo</h1>
-                <p>This is how you normally load images</p>
+                <h1>Why</h1>
+                <p>⬇⬇️⬇️ This is how you usually load images ⬇⬇️⬇️</p>
             </div>
+
+            <!-- ######################## NORMAL ######################## -->
+            
             <div class="gallery">
                 <div class="box"><img class="normal" src="https://source.unsplash.com/200x200/?water" alt="1"></div>
                 <div class="box"><img class="normal" src="https://source.unsplash.com/200x200/?car" alt="2"></div>
@@ -24,13 +32,64 @@
                 <div class="box"><img class="normal" src="https://source.unsplash.com/200x200/?rain" alt="5"></div>
                 <div class="box"><img class="normal" src="https://source.unsplash.com/200x200/?mountain" alt="6"></div>
             </div>
+            <div class="article">
+                <p>It's completely fine. If you take a closer look at the network tab in the <code>developer tools</code>
+                    of your
+                    browser you will see that the requests are made approximately at the same time.</p>
+                <p>This is the best method for loading the first part of the website that should be served to your user
+                    as fast as possible.</p>
+                <p>However, let's admit that all the images that lives in your homepage are not contained in the
+                    viewport of the page. Very probable scenario, right?</p>
+                <p>For your user, all the images that are not in those first <code>100vh</code> aren't real. He doesn't
+                    know he
+                    will need them.</p>
+                <p>So, if you take that approach you are increasing the total loading time of your website; because
+                    your page load will end after the last image is downloaded.</p>
+                <p><strong>note:</strong> The requests start from the top of your page, but this doesn't mean that the
+                    first images requested are the first images to be downloaded completely.</p>
+            </div>
+            <div class="article">
+                <h1>How</h1>
+                <p>Using <strong>Tattica.js</strong> you can choose exacly when your images will be loaded in a very
+                    straightforward manner.</p>
+                <p>So you will be able to decide which images you needs to served immediately and defer the loading of
+                    all the others when your browser is not too busy doing other important things.</p>
+                <ul>
+                    <li>Starts only after <code>load</code> event.</li>
+                    <li>Priority (index) to control the exact loading order of your images.</li>
+                    <li><code>window.requestIdleCallback</code> used to know when it's the right time for your browser
+                        to spawn new requests.</li>
+                    <li><code>intersectionObservers</code> used to load anyway images that are in the viewport.</li>
+                    <li>A handy <code>callback</code> on every image load (now used to trigger the pulse animation).</li>
+                    <li>Possibility to define blocks of loading images (decide which requests need to be sync and which
+                        async).</li>
+                    <li><code>navigator.connection.effectivetype</code> to check the type of connection of your users
+                        and load images accordingly.</li>
+                    <li><code>setTimeout</code> will take care that no image will stop forever your loading queue.</li>
+                    <li>Possibility to define a fallback for images that returns errors.</li>
+                    <li>Super simple to integrate in your workflow (you'll only need to write html attributes).</li>
+                    <li>Friendly error messages (:</li>
+                </ul>
+            </div>
+            <div class="article">
+                <h1>Demo</h1>
+                <ul>
+                    <li>The <code>timeout</code> prop is set to <code>false</code>, so all the following examples are
+                        only for demo purpose.</li>
+                    <li>The <code>loadIntersections</code> prop is set to <code>false</code> as well. Otherwise every
+                        image would be downloaded immediately.</li>
+                </ul>
+            </div>
         </div>
         <div class="container">
             <div class="title">
                 <h1>Sync loading</h1>
                 <p>Tattica.js loading images synchronously</p>
-                <button class="sync" type="button" data-target="data-flag-1">load</button>
+                <button class="sync button" type="button" data-target="data-flag-1">load</button>
             </div>
+
+            <!-- ######################## SYNC ######################## -->
+
             <div class="gallery g1">
                 <div class="box">
                     <p class="num">1</p><img data-flag-1 data-src="https://source.unsplash.com/200x200/?iphone" alt="1">
@@ -56,26 +115,34 @@
             <div class="title">
                 <h1>block loading</h1>
                 <p>Tattica.js loading images in blocks</p>
-                <button class="sync" type="button" data-target="data-flag-2">load</button>
+                <p><strong>note:</strong> The images 4, 5, 6 won't start laoding until every image with the <code>block</code>
+                    badge is loaded.</p>
+                <button class="sync button" type="button" data-target="data-flag-2">load</button>
             </div>
             <div class="gallery g2">
+
+                <!-- ######################## WITH BLOCKS ######################## -->
+
                 <div class="box">
-                    <p class="num">block</p><img data-flag-2 data-block="1" data-src="https://source.unsplash.com/200x200/?soldier"
+                    <p class="num">1</p>
+                    <p class="block">block</p><img data-flag-2 data-block="1" data-src="https://source.unsplash.com/200x200/?soldier"
                         alt="4">
                 </div>
                 <div class="box">
-                    <p class="num">4</p><img data-flag-2 data-src="https://source.unsplash.com/200x200/?museum"
-                        alt="5">
+                    <p class="num">4</p><img data-flag-2 data-src="https://source.unsplash.com/200x200/?museum" alt="5">
                 </div>
                 <div class="box">
-                    <p class="num">block</p><img data-flag-2 data-block="1" data-src="https://source.unsplash.com/200x200/?stars"
+                    <p class="num">1</p>
+                    <p class="block">block</p><img data-flag-2 data-block="1" data-src="https://source.unsplash.com/200x200/?stars"
                         alt="6">
                 </div>
                 <div class="box">
                     <p class="num">5</p><img data-flag-2 data-src="https://source.unsplash.com/200x200/?bottle" alt="1">
                 </div>
                 <div class="box">
-                    <p class="num">block</p><img data-flag-2 data-block="1" data-src="https://source.unsplash.com/200x200/?tree" alt="2">
+                    <p class="num">1</p>
+                    <p class="block">block</p><img data-flag-2 data-block="1" data-src="https://source.unsplash.com/200x200/?tree"
+                        alt="2">
                 </div>
                 <div class="box">
                     <p class="num">6</p><img data-flag-2 data-src="https://source.unsplash.com/200x200/?shelter" alt="3">
@@ -85,89 +152,124 @@
         <div class="container">
             <div class="title">
                 <h1>Priority loading</h1>
-                <p>Tattica.js loading images with priority</p>
-                <button class="sync" type="button" data-target="data-flag-3">load</button>
+                <p>Tattica.js loading images with priority.</p>
+                <p><strong>note:</strong> elements 5, 6 are loaded only after the last element with <code>priority</code>
+                    badge is loaded</p>
+                <button class="sync button" type="button" data-target="data-flag-3">load</button>
             </div>
+
+            <!-- ######################## WITH PRIORITY ######################## -->
+
             <div class="gallery g2">
                 <div class="box">
-                    <p class="num">4</p><p class="priority">priority</p><img data-flag-3 data-priority="4" data-src="https://source.unsplash.com/200x200/?cavaliers"
+                    <p class="num">4</p>
+                    <p class="priority">priority</p><img data-flag-3 data-priority="4" data-src="https://source.unsplash.com/200x200/?cavaliers"
                         alt="1">
                 </div>
                 <div class="box">
                     <p class="num">5</p><img data-flag-3 data-src="https://source.unsplash.com/200x200/?basket" alt="2">
                 </div>
                 <div class="box">
-                    <p class="num">3</p><p class="priority">priority</p><img data-flag-3 data-priority="3" data-src="https://source.unsplash.com/200x200/?ball"
+                    <p class="num">3</p>
+                    <p class="priority">priority</p><img data-flag-3 data-priority="3" data-src="https://source.unsplash.com/200x200/?ball"
                         alt="3">
                 </div>
                 <div class="box">
-                    <p class="num">2</p><p class="priority">priority</p><img data-flag-3 data-priority="2" data-src="https://source.unsplash.com/200x200/?case"
+                    <p class="num">2</p>
+                    <p class="priority">priority</p><img data-flag-3 data-priority="2" data-src="https://source.unsplash.com/200x200/?case"
                         alt="4">
                 </div>
                 <div class="box">
                     <p class="num">6</p><img data-flag-3 data-src="https://source.unsplash.com/200x200/?rock" alt="5">
                 </div>
                 <div class="box">
-                    <p class="num">1</p><p class="priority">priority</p><img data-flag-3 data-priority="1" data-src="https://source.unsplash.com/200x200/?bench"
+                    <p class="num">1</p>
+                    <p class="priority">priority</p><img data-flag-3 data-priority="1" data-src="https://source.unsplash.com/200x200/?bench"
                         alt="6">
                 </div>
             </div>
         </div>
         <div class="container">
-                <div class="title">
-                    <h1>Carousel</h1>
-                    <p>Predicting user behavior</p>
-                    <button class="sync" type="button" data-target="data-flag-4">load</button>
+            <div class="title">
+                <h1>Carousel</h1>
+                <p>Predicting user behavior</p>
+                <p>In a case like a carousel (or a slideshow), starting at 1, you know that the majority of the users
+                    will look at the image on the right.</p>
+                <p>You can define the loading priority accordingly. Image on the right first (for the 90%), image on
+                    the left second (for the 10%), subsequent loading of other images in block.</p>
+                <button class="sync button" type="button" data-target="data-flag-4">load</button>
+            </div>
+            <div class="gallery g2 carouselGallery">
+
+                <!-- ######################## PRIORITY AND BLOCKS ######################## -->
+
+                <div class="box carousel">
+                    <p class="num">4</p>
+                    <p class="block">block</p><img data-flag-4 data-block="1" data-src="https://source.unsplash.com/200x200/?friendship"
+                        alt="1">
                 </div>
-                <div class="gallery g2">
-                    <div class="box carousel">
-                        <p class="num">4</p><p class="priority">priority</p><img data-flag-4 data-priority="4" data-src="https://source.unsplash.com/200x200/?friendship"
-                            alt="1">
-                    </div>
-                    <div class="box carousel">
-                        <p class="num">5</p><img data-flag-4 data-src="https://source.unsplash.com/200x200/?big" alt="2">
-                    </div>
-                    <div class="box carousel">
-                        <p class="num">3</p><p class="priority">priority</p><img data-flag-4 data-priority="3" data-src="https://source.unsplash.com/200x200/?ocean"
-                            alt="3">
-                    </div>
-                    <div class="box carousel">
-                        <p class="num">2</p><p class="priority">priority</p><img data-flag-4 data-priority="2" data-src="https://source.unsplash.com/200x200/?clip"
-                            alt="4">
-                    </div>
-                    <div class="box carousel">
-                        <p class="num">6</p><img data-flag-4 data-src="https://source.unsplash.com/200x200/?sheet" alt="5">
-                    </div>
+                <div class="box carousel">
+                    <p class="num">3</p>
+                    <p class="priority">priority</p><img data-flag-4 data-priority="3" data-src="https://source.unsplash.com/200x200/?big"
+                        alt="2">
+                </div>
+                <div class="box carousel">
+                    <p class="num">1</p>
+                    <p class="priority">priority</p><img data-flag-4 data-priority="1" data-src="https://source.unsplash.com/200x200/?ocean"
+                        alt="3">
+                </div>
+                <div class="box carousel">
+                    <p class="num">2</p>
+                    <p class="priority">priority</p><img data-flag-4 data-priority="2" data-src="https://source.unsplash.com/200x200/?clip"
+                        alt="4">
+                </div>
+                <div class="box carousel">
+                    <p class="num">4</p>
+                    <p class="block">block</p><img data-flag-4 data-block="1" data-src="https://source.unsplash.com/200x200/?sheet"
+                        alt="5">
                 </div>
             </div>
+        </div>
     </div>
     <div class="container">
         <div class="title">
             <h1>Adaptive serving</h1>
-            <p>Tattica.js loading images according to `Navigator.connection.effectivetype`</p>
-            <button class="sync" type="button" data-target="data-flag-5">load</button>
+            <p>Tattica.js loading images according to <code>Navigator.connection.effectivetype</code></p>
+            <p>If you slow down your connection (or if you are on a medium to slow connection) in <code>performance</code> tab of dev tools you will see that smaller
+                images are loaded.</p>
+            <button class="sync button" type="button" data-target="data-flag-5">load</button>
         </div>
+
+        <!-- ######################## ADAPTIVE SERVING ######################## -->
+
         <div class="gallery">
             <div class="box">
-                <p class="num">4</p><img data-flag-5 data-src="https://source.unsplash.com/100x100/?djs"
-                    alt="1">
+                <p class="num">1</p><img data-flag-5 data-src="https://source.unsplash.com/200x200/?dj" data-src-medium="https://source.unsplash.com/100x100/?dj"
+                    data-src-slow="https://source.unsplash.com/100x100/?dj" alt="1">
             </div>
             <div class="box">
-                <p class="num">5</p><img data-flag-5 data-src="https://source.unsplash.com/100x100/?fruits" alt="2">
+                <p class="num">2</p><img data-flag-5 data-src="https://source.unsplash.com/200x200/?fruits"
+                    data-src-medium="https://source.unsplash.com/100x100/?fruits" data-src-slow="https://source.unsplash.com/100x100/?fruits"
+                    alt="2">
             </div>
             <div class="box">
-                <p class="num">3</p><img data-flag-5 data-src="https://source.unsplash.com/100x100/?apple"
+                <p class="num">3</p><img data-flag-5 data-src="https://source.unsplash.com/200x200/?apple"
+                    data-src-medium="https://source.unsplash.com/100x100/?apple" data-src-slow="https://source.unsplash.com/100x100/?apple"
                     alt="3">
             </div>
             <div class="box">
-                <p class="num">2</p><img data-flag-5 data-src="https://source.unsplash.com/100x100/?banana"
+                <p class="num">4</p><img data-flag-5 data-src="https://source.unsplash.com/200x200/?banana"
+                    data-src-medium="https://source.unsplash.com/100x100/?banana" data-src-slow="https://source.unsplash.com/100x100/?banana"
                     alt="4">
             </div>
             <div class="box">
-                <p class="num">6</p><img data-flag-5 data-src="https://source.unsplash.com/100x100/?yogurt" alt="5">
+                <p class="num">5</p><img data-flag-5 data-src="https://source.unsplash.com/200x200/?yogurt"
+                    data-src-medium="https://source.unsplash.com/100x100/?yogurt" data-src-slow="https://source.unsplash.com/100x100/?yogurt"
+                    alt="5">
             </div>
             <div class="box">
-                <p class="num">1</p><img data-flag-5 data-src="https://source.unsplash.com/100x100/?avocado"
+                <p class="num">6</p><img data-flag-5 data-src="https://source.unsplash.com/200x200/?avocado"
+                    data-src-medium="https://source.unsplash.com/100x100/?avocado" data-src-slow="https://source.unsplash.com/100x100/?avocado"
                     alt="6">
             </div>
         </div>
@@ -176,15 +278,21 @@
         <div class="title">
             <h1>Gallery</h1>
             <p>Loading subsequent blocks</p>
-            <button class="sync" type="button" data-target="data-flag-6">load</button>
+            <p>In a large gallery probably only a portion of the total images fits within the viewport. So you could be
+                load images in subsequent <code>blocks</code> to serve the first images faster.</p>
+            <button class="sync button" type="button" data-target="data-flag-6">load</button>
         </div>
-        <div class="gallery">
+
+        <!-- ######################## SUBSEQUENT BLOCKS ######################## -->
+
+        <div class="gallery carouselGallery">
             <div class="box carousel">
                 <p class="block">block 1</p><img data-flag-6 data-priority-block="1" data-src="https://source.unsplash.com/200x200/?sidewalk"
                     alt="1">
             </div>
             <div class="box carousel">
-                <p class="block">block 1</p><img data-flag-6 data-priority-block="1" data-src="https://source.unsplash.com/200x200/?food" alt="2">
+                <p class="block">block 1</p><img data-flag-6 data-priority-block="1" data-src="https://source.unsplash.com/200x200/?food"
+                    alt="2">
             </div>
             <div class="box carousel">
                 <p class="block">block 1</p><img data-flag-6 data-priority-block="1" data-src="https://source.unsplash.com/200x200/?washing"
@@ -195,14 +303,16 @@
                     alt="4">
             </div>
             <div class="box carousel">
-                <p class="block">block 1</p><img data-flag-6 data-priority-block="1" data-src="https://source.unsplash.com/200x200/?sailboat" alt="5">
+                <p class="block">block 1</p><img data-flag-6 data-priority-block="1" data-src="https://source.unsplash.com/200x200/?sailboat"
+                    alt="5">
             </div>
             <div class="box carousel">
                 <p class="block">block 2</p><img data-flag-6 data-block="2" data-src="https://source.unsplash.com/200x200/?sign"
                     alt="1">
             </div>
             <div class="box carousel">
-                <p class="block">block 2</p><img data-flag-6 data-block="2" data-src="https://source.unsplash.com/200x200/?table" alt="2">
+                <p class="block">block 2</p><img data-flag-6 data-block="2" data-src="https://source.unsplash.com/200x200/?table"
+                    alt="2">
             </div>
             <div class="box carousel">
                 <p class="block">block 2</p><img data-flag-6 data-block="2" data-src="https://source.unsplash.com/200x200/?peanuts"
@@ -213,14 +323,16 @@
                     alt="4">
             </div>
             <div class="box carousel">
-                <p class="block">block 2</p><img data-flag-6 data-block="2" data-src="https://source.unsplash.com/200x200/?keys" alt="5">
+                <p class="block">block 2</p><img data-flag-6 data-block="2" data-src="https://source.unsplash.com/200x200/?keys"
+                    alt="5">
             </div>
             <div class="box carousel">
                 <p class="block">block 3</p><img data-flag-6 data-block="3" data-src="https://source.unsplash.com/200x200/?chair"
                     alt="1">
             </div>
             <div class="box carousel">
-                <p class="block">block 3</p><img data-flag-6 data-block="3" data-src="https://source.unsplash.com/200x200/?pack" alt="2">
+                <p class="block">block 3</p><img data-flag-6 data-block="3" data-src="https://source.unsplash.com/200x200/?pack"
+                    alt="2">
             </div>
             <div class="box carousel">
                 <p class="block">block 3</p><img data-flag-6 data-block="3" data-src="https://source.unsplash.com/200x200/?shampoo"
@@ -231,14 +343,16 @@
                     alt="4">
             </div>
             <div class="box carousel">
-                <p class="block">block 3</p><img data-flag-6 data-block="3" data-src="https://source.unsplash.com/200x200/?spoon" alt="5">
+                <p class="block">block 3</p><img data-flag-6 data-block="3" data-src="https://source.unsplash.com/200x200/?spoon"
+                    alt="5">
             </div>
             <div class="box carousel">
                 <p class="block">block 4</p><img data-flag-6 data-block="4" data-src="https://source.unsplash.com/200x200/?watch"
                     alt="1">
             </div>
             <div class="box carousel">
-                <p class="block">block 4</p><img data-flag-6 data-block="4" data-src="https://source.unsplash.com/200x200/?mirror" alt="2">
+                <p class="block">block 4</p><img data-flag-6 data-block="4" data-src="https://source.unsplash.com/200x200/?mirror"
+                    alt="2">
             </div>
             <div class="box carousel">
                 <p class="block">block 4</p><img data-flag-6 data-block="4" data-src="https://source.unsplash.com/200x200/?headphones"
@@ -249,12 +363,14 @@
                     alt="4">
             </div>
             <div class="box carousel">
-                <p class="block">block 4</p><img data-flag-6 data-block="4" data-src="https://source.unsplash.com/200x200/?bread" alt="5">
+                <p class="block">block 4</p><img data-flag-6 data-block="4" data-src="https://source.unsplash.com/200x200/?bread"
+                    alt="5">
             </div>
         </div>
     </div>
-</div>
-    <script src="../../dist/tattica.umd.js"></script>
+    </div>
+    <!-- <script src="../../dist/tattica.umd.js"></script> -->
+    <script src="https://unpkg.com/tattica@0.1.0/dist/tattica.umd.js"></script>
     <script src="./show.js"></script>
 </body>
 

@@ -1,4 +1,17 @@
+/**
+ * Loads a single image
+ * return a Promise that is:
+ * - resolved after image load
+ * - rejected if an error occurs. eg: wrong URL provided
+ * note: timestamp is printed before and after `onload`
+ * => when testing, is possible to know exactly when the images easier
+ *
+ * @param {Object} node - Object containing all the info needed to load the image
+ * @param {Object} connection - Tells which URL to pass to the `src` attribute
+ */
+
 const loadSingle = (node, connection) => {
+  // destructuring
   const {
     el,
     src,
@@ -6,8 +19,11 @@ const loadSingle = (node, connection) => {
     timeout,
     callback,
   } = node;
-  console.log(timeout);
+
+  // falling back to non-null URLs
   const asset = src[connection.string] || src.medium || src.slow || src.default;
+
+  // Check if the image is already loaded by `loadIntersections.js`
   const isLoaded = el.attributes['data-is-loaded'];
   return new Promise((resolve, reject) => {
     if (isLoaded) resolve();
@@ -20,6 +36,7 @@ const loadSingle = (node, connection) => {
       resolve();
     };
     el.onerror = (err) => {
+      // if no fallback is provided a 1px gif weighting 3bytes is loaded => no broken images
       const fallback = src.fall || 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
       const error = {
         err,
@@ -30,6 +47,8 @@ const loadSingle = (node, connection) => {
       };
       if (timestamp) el.setAttribute('data-timestamp-loaded', Date.now());
       el.src = fallback;
+
+      // error is catched by `error.mjs`
       reject(error);
     };
     if (timestamp) el.setAttribute('data-timestamp-start', Date.now());
