@@ -25,6 +25,7 @@ TODO:
     [x] real world - at least 2
     [x] finish `Carousel - test`
 
+[ ] move away from `source.unsplash.com`
 [ ] polish tests (grouping functions, refactoring...)
 [ ] tests
     [ ] add test for `timeout` in loadSingle
