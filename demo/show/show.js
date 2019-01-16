@@ -7,19 +7,12 @@ const placeholder = (img) => {
   if (img.src === '') ref.src = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
 };
 
-// To avoid image caching
-const uniqueSrc = (img) => {
-  const dataSrc = img.attributes['data-src'];
-  if (dataSrc) img.setAttribute('data-src', `${dataSrc.value}?${Date.now()}`);
-};
-
 const loadAnimation = (img) => {
   img.classList.add('pulse');
 };
 
 normals.forEach(loadAnimation);
 images.forEach(placeholder);
-images.forEach(uniqueSrc);
 
 const config = {
   // A timestamp is printed on elements for testing purposes
