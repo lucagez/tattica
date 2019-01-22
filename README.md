@@ -57,7 +57,55 @@ Useful for testing purpose. eg: check if images are loading synchronously
 
 ## Recipes
 
+#### Initialize tattica
 
+```javascript
+  const tattica = require('tattica');
+
+  const config = {
+  // A timestamp is printed on elements for testing purposes
+  timestamp: true,
+
+  // Tells tattica not to load images in the viewport
+  loadIntersections: false,
+
+  // Trigger your callback fired after every image load
+  callback: yourCallback,
+
+  // Deactivated timeout to show that tattica can behave truly sync.
+  // In a real-world scenario it should always be a value. Defaults: 1000ms
+  timeout: false,
+};
+
+  tattica(config);
+
+```
+
+#### Load images sync
+
+Every image is loaded synchronously.
+
+```html
+  <div class="container">
+    <img data-flag data-src="https://link1" />
+    <img data-flag data-src="https://link2" />
+    <img data-flag data-src="https://link3" />
+    <!-- ... -->
+  </div>
+```
+
+#### Block loading
+
+Images loaded in subsequent blocks.
+
+!!! continue from here !!!
+
+```html
+  <img data-flag data-block="1" data-src="https://link1"/>
+  <img data-flag data-block="1" data-src="https://link2"/>
+  <img data-flag data-block="1" data-src="https://link3"/>
+  <img data-flag data-src="https://link4" />
+```
 
 ## License
 
