@@ -15,7 +15,7 @@ import connection from './lib/connection';
 *@param {number} config.timeout - Sets maximum loading time (in ms) for an image to load sync. Defaults to 1000ms.
 * Can be set to FALSE. However settin it to false is discouraged in a real-world scenario.
 *@param {function} config.callback - Pass callback to be executed after an image loading resolve. Defaults to null
-*@param {boolen} config.timestamp - If set to TRUE prints Date.now() in `timestamp` image attribute.
+*@param {boolean} config.timestamp - If set to TRUE prints Date.now() in `timestamp` image attribute.
 * Useful for testing purpose. eg: check if images are loading synchronously
 */
 

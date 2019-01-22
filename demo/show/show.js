@@ -11,8 +11,17 @@ const loadAnimation = (img) => {
   img.classList.add('pulse');
 };
 
+const uniqueUrl = (img) => {
+  const initial = img.attributes['data-src'];
+  if (!initial) return;
+  img.setAttribute('data-src', `${initial.value}?${Date.now()}`);
+};
+
 normals.forEach(loadAnimation);
-images.forEach(placeholder);
+images.forEach((img) => {
+  placeholder(img);
+  uniqueUrl(img);
+});
 
 const config = {
   // A timestamp is printed on elements for testing purposes

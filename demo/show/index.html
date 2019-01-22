@@ -14,16 +14,19 @@
         <div class="main-title">
             <h1>Tattica.js</h1>
             <p>A tactic approach to asset loading</p>
+            <!-- Place this tag where you want the button to render. -->
+            <a class="github-button" href="https://github.com/lucagez/tattica" data-icon="octicon-star" data-size="large"
+                data-show-count="true" aria-label="Star lucagez/tattica on GitHub">Star</a>
 
         </div>
         <div class="container">
             <div class="title">
                 <h1>Why</h1>
-                <p>⬇⬇️⬇️ This is how you usually load images ⬇⬇️⬇️</p>
+                <p>This is how images are usually loaded ⬇</p>
             </div>
 
             <!-- ######################## NORMAL ######################## -->
-            
+
             <div class="gallery">
                 <div class="box"><img class="normal" src="https://source.unsplash.com/200x200/?water" alt="1"></div>
                 <div class="box"><img class="normal" src="https://source.unsplash.com/200x200/?car" alt="2"></div>
@@ -35,30 +38,32 @@
             <div class="article">
                 <p>It's completely fine. If you take a closer look at the network tab in the <code>developer tools</code>
                     of your
-                    browser you will see that the requests are made approximately at the same time.</p>
-                <p>This is the best method for loading the first part of the website that should be served to your user
+                    browser, you will see that the requests are made approximately at the same time.</p>
+                <p>This is a good method for loading the part of the website that should be served to your user
                     as fast as possible.</p>
                 <p>However, let's admit that all the images that lives in your homepage are not contained in the
                     viewport of the page. Very probable scenario, right?</p>
-                <p>For your user, all the images that are not in those first <code>100vh</code> aren't real. He doesn't
+                <p>For your user, all the images that doesn't fit in those first <code>100vh</code> aren't real. He
+                    doesn't
                     know he
                     will need them.</p>
-                <p>So, if you take that approach you are increasing the total loading time of your website; because
+                <p>So, if you are taking this approach you are increasing the total loading time of your website;
+                    because
                     your page load will end after the last image is downloaded.</p>
                 <p><strong>note:</strong> The requests start from the top of your page, but this doesn't mean that the
-                    first images requested are the first images to be downloaded completely.</p>
+                    first image requested are the first image to be downloaded completely.</p>
             </div>
             <div class="article">
                 <h1>How</h1>
                 <p>Using <strong>Tattica.js</strong> you can choose exacly when your images will be loaded in a very
                     straightforward manner.</p>
-                <p>So you will be able to decide which images you needs to served immediately and defer the loading of
+                <p>So you will be able to decide which images needs to served immediately and defer the loading of
                     all the others when your browser is not too busy doing other important things.</p>
                 <ul>
                     <li>Starts only after <code>load</code> event.</li>
                     <li>Priority (index) to control the exact loading order of your images.</li>
                     <li><code>window.requestIdleCallback</code> used to know when it's the right time for your browser
-                        to spawn new requests.</li>
+                        to trigger new requests.</li>
                     <li><code>intersectionObservers</code> used to load anyway images that are in the viewport.</li>
                     <li>A handy <code>callback</code> on every image load (now used to trigger the pulse animation).</li>
                     <li>Possibility to define blocks of loading images (decide which requests need to be sync and which
@@ -93,27 +98,27 @@
             <div class="gallery g1">
                 <div class="box">
                     <p class="num">1</p><img data-flag-1 data-src="https://raw.githubusercontent.com/lucagez/tattica/master/demo/images/0.jpg"
-                     alt="1">
+                        alt="1">
                 </div>
                 <div class="box">
                     <p class="num">2</p><img data-flag-1 data-src="https://raw.githubusercontent.com/lucagez/tattica/master/demo/images/1.jpg"
-                     alt="2">
+                        alt="2">
                 </div>
                 <div class="box">
                     <p class="num">3</p><img data-flag-1 data-src="https://raw.githubusercontent.com/lucagez/tattica/master/demo/images/2.jpg"
-                     alt="3">
+                        alt="3">
                 </div>
                 <div class="box">
                     <p class="num">4</p><img data-flag-1 data-src="https://raw.githubusercontent.com/lucagez/tattica/master/demo/images/3.jpg"
-                     alt="4">
+                        alt="4">
                 </div>
                 <div class="box">
                     <p class="num">5</p><img data-flag-1 data-src="https://raw.githubusercontent.com/lucagez/tattica/master/demo/images/4.jpg"
-                     alt="5">
+                        alt="5">
                 </div>
                 <div class="box">
                     <p class="num">6</p><img data-flag-1 data-src="https://raw.githubusercontent.com/lucagez/tattica/master/demo/images/5.jpg"
-                     alt="6">
+                        alt="6">
                 </div>
             </div>
         </div>
@@ -136,7 +141,7 @@
                 </div>
                 <div class="box">
                     <p class="num">4</p><img data-flag-2 data-src="https://raw.githubusercontent.com/lucagez/tattica/master/demo/images/7.jpg"
-                     alt="5">
+                        alt="5">
                 </div>
                 <div class="box">
                     <p class="num">1</p>
@@ -145,7 +150,7 @@
                 </div>
                 <div class="box">
                     <p class="num">5</p><img data-flag-2 data-src="https://raw.githubusercontent.com/lucagez/tattica/master/demo/images/9.jpg"
-                     alt="1">
+                        alt="1">
                 </div>
                 <div class="box">
                     <p class="num">1</p>
@@ -154,7 +159,7 @@
                 </div>
                 <div class="box">
                     <p class="num">6</p><img data-flag-2 data-src="https://raw.githubusercontent.com/lucagez/tattica/master/demo/images/11.jpg"
-                     alt="3">
+                        alt="3">
                 </div>
             </div>
         </div>
@@ -177,7 +182,7 @@
                 </div>
                 <div class="box">
                     <p class="num">5</p><img data-flag-3 data-src="https://raw.githubusercontent.com/lucagez/tattica/master/demo/images/13.jpg"
-                    alt="5">
+                        alt="5">
                 </div>
                 <div class="box">
                     <p class="num">3</p>
@@ -192,7 +197,7 @@
                 <div class="box">
                     <p class="num">6</p>
                     <img data-flag-3 data-src="https://raw.githubusercontent.com/lucagez/tattica/master/demo/images/16.jpg"
-                    alt="5">
+                        alt="5">
                 </div>
                 <div class="box">
                     <p class="num">1</p>
@@ -206,10 +211,12 @@
             <div class="title">
                 <h1>Carousel</h1>
                 <p>Predicting user behavior</p>
-                <p>In a case like a carousel (or a slideshow), starting at 1, you know that the majority of the users
+                <p><strong>e.g.</strong> In a case like a carousel (or a slideshow), starting at 1, you know from your
+                    analytics that the majority of your users
                     will look at the image on the right.</p>
-                <p>You can define the loading priority accordingly. Image on the right first (for the 90%), image on
-                    the left second (for the 10%), subsequent loading of other images in block.</p>
+                <p>You can then define the loading priority accordingly. Image on the right first (higher probability),
+                    image on
+                    the left second (lower probability), subsequent loading of other images in block.</p>
                 <button class="sync button" type="button" data-target="data-flag-4">load</button>
             </div>
             <div class="gallery g2 carouselGallery">
@@ -248,7 +255,8 @@
         <div class="title">
             <h1>Adaptive serving</h1>
             <p>Tattica.js loading images according to <code>Navigator.connection.effectivetype</code></p>
-            <p>If you slow down your connection (or if you are on a medium to slow connection) in <code>performance</code> tab of dev tools you will see that smaller
+            <p>If you slow down your connection (or if you are on a medium to slow connection) in <code>performance</code>
+                tab of dev tools you will see that smaller
                 images are loaded.</p>
             <button class="sync button" type="button" data-target="data-flag-5">load</button>
         </div>
@@ -385,6 +393,8 @@
     <script src="../../dist/tattica.umd.js"></script>
     <!-- <script src="https://unpkg.com/tattica@0.1.0/dist/tattica.umd.js"></script> -->
     <script src="./show.js"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 
 </html>
