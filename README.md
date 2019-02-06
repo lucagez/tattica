@@ -23,6 +23,10 @@ If you are not:
 
 <a href="https://unpkg.com/tattica@0.1.0/dist/tattica.umd.js">https://unpkg.com/tattica@0.1.0/dist/tattica.umd.js</a>
 
+## Demo
+
+- Codepen: https://codepen.io/lucagez/full/BMmKeK
+
 ## How it works
 
 Using Tattica.js you can choose exacly when your images will be loaded in a very straightforward manner.
@@ -54,6 +58,31 @@ It can be set to FALSE. However setting it to false is discouraged in a real-wor
 - `callback`: Pass callback to be executed after an image loading resolve. Defaults to null.
 - `timestamp`: If set to TRUE prints Date.now() in `timestamp` image attribute.
 Useful for testing purpose. eg: check if images are loading synchronously
+
+## Attributes
+
+`tattica` works with attributes set in html.
+Here is a list with all the available attributes.
+
+- `data-flag`: required to know which images need to be pushed into the loading queue.
+- `data-block`: required to know which images, belonging to the same block, need to be loaded async. Images of the same block must have `data-block` attribute equal to the same number.
+- `data-priority`: equals to increasing numbers. Elements with `data-priority` get loaded first.
+- `data-priority-block`: works as `data-block` but in the priority queue.
+- `data-src-medium`: URL of images to be used in case of medium speed network (3G).
+- `data-src-slow`: URL of images to be used in case of slow network (2G).
+
+## Rules
+
+- Tattica will make a loading queue only of images with `data-flag` attribute.
+- You should NOT use tatica for images contained in the viewport that first gets served to the user.
+- You should always set a placeholder in `src`. If anything is provided, a default on will be loaded to avoid a broken image.
+- Tattica will make two separate queues: [1] priority,  [2] normal
+- Every image in the priority queue gets loaded first. No matter the position in the DOM.
+- You can add an image to priority queue by setting a `data-priority` or `data-priority-block` attribute on it.
+- `data-priority` attributes should be increasing numbers to make tattica know how to sort the queue.
+- images belonging to the same block should have attribte `data-block` or `data-priority-block` equal to the same number.
+- refer to `/demo/show/index.html` for every example. 
+
 
 ## Recipes
 
@@ -97,14 +126,36 @@ Every image is loaded synchronously.
 #### Block loading
 
 Images loaded in subsequent blocks.
-
-!!! continue from here !!!
+The last image will not start loading until every image of the block is loaded.
 
 ```html
   <img data-flag data-block="1" data-src="https://link1"/>
   <img data-flag data-block="1" data-src="https://link2"/>
   <img data-flag data-block="1" data-src="https://link3"/>
   <img data-flag data-src="https://link4" />
+```
+
+#### Priority loading
+
+Images with `data-priority` attribute are loaded first in a separate queue. No matter the position in the DOM.
+
+```html
+  <img data-flag data-src="https://link1" /> 
+  <img data-flag data-priority="2" data-src="https://link2"/> <!-- second -->
+  <img data-flag data-src="https://link3"/>
+  <img data-flag data-priority="1" data-src="https://link4"/> <!-- first -->
+```
+
+#### Adaptive serving
+
+You can define `data-src-slow` and/or `data-src-medium`.
+URL provided to those attributes will be used in case of a slow network instead of the URL in `data-src`.
+
+```html
+  <img data-flag 
+    data-src="https://link1"
+    data-src-medium="https://link1/smallerImage"
+    data-src-slow="https://link1/superSmallImage" /> 
 ```
 
 ## License
