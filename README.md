@@ -1,5 +1,6 @@
 <p align="center">
-  <!-- <br> -->
+  <img src="media/tattica.gif" alt="tattica" />
+  <br>
   <a href="https://travis-ci.org/lucagez/tattica"><img src="https://travis-ci.com/lucagez/tattica.svg?branch=master" alt="travis"></a>
   <a href="https://www.npmjs.org/package/tattica"><img src="https://img.shields.io/npm/v/tattica.svg?style=flat" alt="npm"></a>
   <img src="https://img.shields.io/badge/license-MIT-f1c40f.svg" alt="MIT">
