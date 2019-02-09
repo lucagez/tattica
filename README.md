@@ -40,7 +40,7 @@ So you will be able to decide which images needs to served immediately and defer
 - `intersectionObservers` used to load anyway images that are in the viewport.
 - A handy `callback` on every image load (now used to trigger the pulse animation).
 - Possibility to define blocks of loading images (decide which requests need to be sync and which async).
-- `navigator.connection.effectivetype` to check the type of connection of your users and load images accordingly.
+- `navigator.connection.effectiveType` to check the type of connection of your users and load images accordingly.
 - `setTimeout` will take care that no image will stop forever your loading queue.
 - Possibility to define a fallback for images that returns errors.
 - Super simple to integrate in your workflow (you'll only need to write html attributes).
