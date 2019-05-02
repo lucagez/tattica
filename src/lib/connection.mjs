@@ -7,6 +7,10 @@
  *  @param {string} ref - the corresponding string used to match the correct attribute on the html element
  */
 const connection = () => {
+  // Navigator.connection is a feature available only in Chrome
+  // => returning `default` for every browser that don't support this draft feature.
+  if (typeof navigator.connection === 'undefined') return { string: 'default', ref: 'data-src' };
+
   const type = navigator.connection.effectiveType.split('g')[0];
   const typeNum = Number(type.match(/\d/)[0]);
   let typeString;

@@ -22,7 +22,7 @@ npm install --save tattica
 
 If you are not:
 
-<a href="https://unpkg.com/tattica@0.1.0/dist/tattica.umd.js">https://unpkg.com/tattica@0.1.0/dist/tattica.umd.js</a>
+<a href="https://unpkg.com/tattica/dist/tattica.umd.js">https://unpkg.com/tattica/dist/tattica.umd.js</a>
 
 ## Demo
 
@@ -149,6 +149,7 @@ Images with `data-priority` attribute are loaded first in a separate queue. No m
 
 #### Adaptive serving
 
+**WARNING:** This feature is available only on Chrome.
 You can define `data-src-slow` and/or `data-src-medium`.
 URL provided to those attributes will be used in case of a slow network instead of the URL in `data-src`.
 
